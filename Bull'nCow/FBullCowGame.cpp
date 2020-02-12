@@ -1,7 +1,10 @@
+#pragma once
 #include "FBullCowGame.h"
 #include <map>
 #include <iostream>
+
 #define TMap std::map
+using int32 = int;
 
 FBullCowGame::FBullCowGame() { Reset(); } //default construct
 
@@ -17,15 +20,13 @@ int32 FBullCowGame::GetMaxTries() const
 
 void FBullCowGame::SelectWordFromDificulty(FString DificultyLevel)
 {
-	TMap<FString, FString> WordFromDificulty{ {"1","bite"},{"2","spark"},{"3","earths"} };
+	TMap<FString, FString> WordFromDificulty{ {"1","bite"},{"2","spark"},{"3","earths"} }; //must be an isogram
 
 	MyHiddenWord = WordFromDificulty[DificultyLevel];
 }
 
 void FBullCowGame::Reset()
 {
-	//const FString HIDDEN_WORD = "planet";
-	//MyHiddenWord = "";
 	
 	MyCurrentTry = 1;
 	bGameIsWon = false;

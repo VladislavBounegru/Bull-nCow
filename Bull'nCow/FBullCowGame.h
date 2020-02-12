@@ -33,12 +33,13 @@ public:
 	int32 GetCurrentTry() const;
 	int32 GetHiddenWordLength() const;
 	bool IsGameWon() const;
-	EGuessStatus CheckGuessValidity(FString) const; //TODO make a more rich return value
+	EGuessStatus CheckGuessValidity(FString) const; 
 
 	void SelectWordFromDificulty(FString);
-	void Reset(); //TODO make a more rich return value
+	void Reset(); 
 	FBullCowCount SubmitValidGuess(FString);
-// Please try and ignore this and focus on the interface above 
+
+
 private:
 	int32 MyCurrentTry ;
 	FString MyHiddenWord;

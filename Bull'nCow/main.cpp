@@ -9,6 +9,7 @@ For game logic see the FBullCowGame class
 #include <string>
 #include "FBullCowGame.h"
 
+// for UE
 using int32 = int;
 using FText = std::string;
  
@@ -51,10 +52,9 @@ void PlayGame()
 {
 	BCGame.Reset();
 	int32 MaxTries = BCGame.GetMaxTries();
-	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries ) //TODO change from FOR to WHILE loop once we have are validating tries
+	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries ) 
 	{
 		FText Guess = GetValidGuess(); 
-		//submit valid guess to the game
 		FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
 
 		std::cout << "Bulls = " << BullCowCount.Bulls;
@@ -86,7 +86,7 @@ FText GetValidGuess() //loop until the user give a valid guess
 		default:
 			break;
 		}
-	} while (Status != EGuessStatus::OK); //keep looping til we get no error 
+	} while (Status != EGuessStatus::OK);
 	return Guess;
 
 	
@@ -104,7 +104,7 @@ void PrintIntro()
 	std::cout << " *  |-,--- |              |------|  * " << std::endl;
 	std::cout << "    ^      ^              ^      ^ " << std::endl;
 	SelectDificulty();
-	HiddenWordLength = BCGame.GetHiddenWordLength();
+		HiddenWordLength = BCGame.GetHiddenWordLength();
 	std::cout << "Can you guess the " << HiddenWordLength;
 	std::cout << " letter isogram I'm thinking of.\n\n";
 	return;
